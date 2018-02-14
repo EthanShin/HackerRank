@@ -6,9 +6,9 @@ fun main(args: Array<String>) {
     val integer = Integer.valueOf(readLine()!!)
     val numbers = readLine()!!.split(' ').map { it.toInt() }
     
-    var positive = 0
-    var negative = 0
-    var zeroes = 0
+    var positive = 0.0F
+    var negative = 0.0F
+    var zeroes = 0.0F
     
     for (i in 0..integer-1) {
         when {
@@ -17,4 +17,8 @@ fun main(args: Array<String>) {
             else -> zeroes += 1
         }
     }
+
+    println(positive / integer)
+    println(negative / integer)
+    println(zeroes / integer)
 }
