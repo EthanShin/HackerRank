@@ -3,10 +3,10 @@ import java.util.*
 
 fun main(args: Array<String>) {
     /* Enter your code here. Read input from STDIN. Print output to STDOUT. */
-    val numbers = readLine()!!.split(' ').map { it.toInt() }
+    val numbers = readLine()!!.split(' ').map { it.toLong() }
     
-    var minimal: Int = 0
-    var maximal: Int = 0
+    var minimal: Long
+    var maximal: Long
     
     var min = numbers.first()
     var max = numbers.first()
