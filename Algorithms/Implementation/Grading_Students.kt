@@ -2,7 +2,7 @@ import java.io.*
 import java.util.*
 
 fun roundGrade(score: Int): Int {
-
+    score.rem(5)
 }
 
 fun main(args: Array<String>) {
