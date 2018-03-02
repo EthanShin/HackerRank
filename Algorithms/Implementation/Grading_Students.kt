@@ -13,7 +13,7 @@ fun main(args: Array<String>) {
     var gradeList = mutableListOf<Int>()
 
     for (i in 0..num) {
-        gradeList.add(sc.nextInt())
+        gradeList.add(roundGrade(sc.nextInt()))
     }
 
     println(gradeList)
