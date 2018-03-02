@@ -2,7 +2,16 @@ import java.io.*
 import java.util.*
 
 fun roundGrade(score: Int): Int {
-    score.rem(5)
+    if (score < 38) {
+        return score
+    } else {
+        val reminder = score.rem(5)
+
+        if (reminder > 2) {
+            return score + (5 - reminder)
+        }
+        return score
+    }
 }
 
 fun main(args: Array<String>) {
@@ -10,11 +19,7 @@ fun main(args: Array<String>) {
     val sc = Scanner(System.`in`)
     val num = sc.nextInt() - 1
 
-    var gradeList = mutableListOf<Int>()
-
     for (i in 0..num) {
-        gradeList.add(roundGrade(sc.nextInt()))
+        println(roundGrade(sc.nextInt()))
     }
-
-    println(gradeList)
 }
