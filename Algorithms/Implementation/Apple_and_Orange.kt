@@ -1,24 +1,19 @@
 import java.io.*
 import java.util.*
 
-var s = 0
-var t = 0
-var a = 0
-var b = 0
-
-fun checkRegion(distance: Int): Boolean {
-    return false
+fun checkRegion(base: Int, distance: Int): Int {
+    return base + distance
 }
 
 fun main(args: Array<String>) {
     /* Enter your code here. Read input from STDIN. Print output to STDOUT. */
     val sc = Scanner(System.`in`)
 
-    s = sc.nextInt()
-    t = sc.nextInt()
+    var s = sc.nextInt()
+    var t = sc.nextInt()
 
-    a = sc.nextInt()
-    b = sc.nextInt()
+    var a = sc.nextInt()
+    var b = sc.nextInt()
 
     val m = sc.nextInt() - 1
     val n = sc.nextInt() - 1
@@ -27,16 +22,16 @@ fun main(args: Array<String>) {
     var rob = 0
 
     for (i in 0..m) {
-        if (checkRegion(sc.nextInt())) {
+        if (checkRegion(a, sc.nextInt()) in s..t) {
             larry++
         }
     }
 
     for (i in 0..n) {
-        if (checkRegion(sc.nextInt())) {
+        if (checkRegion(b, sc.nextInt()) in s..t) {
             rob++
         }
     }
 
-    print("$larry $rob")
+    print("$larry\n$rob")
 }
