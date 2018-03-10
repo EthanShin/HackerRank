@@ -2,12 +2,18 @@ import java.io.*
 import java.util.*
 
 fun kangaroo(x1: Int, v1: Int, x2: Int, v2: Int): Boolean {
-    if (x1 >= x2 && v1 < v2) {
-        return true
-    } else if (x1 < x2 && v1 > v2) {
-        return true
+    var kangaroo1 = x1
+    var kangaroo2 = x2
+    while (true) {
+        kangaroo1 += v1
+        kangaroo2 += v2
+
+        if (kangaroo1 == kangaroo2) {
+            return true
+        } else if (kangaroo1 > kangaroo2) {
+            return false
+        }
     }
-    return false
 }
 
 fun main(args: Array<String>) {
