@@ -4,14 +4,14 @@ import java.util.*
 fun checkValue(values: List<Int>, k: Int): Int {
     var sum = 0
 
-    for (element1 in values) {
-        for (element2 in values) {
-            if ((element1 + element2 ) % k == 0) {
+    for (element1 in 0..(values.size-2)) {
+        for (element2 in (element1+1)..(values.size-1)) {
+            if ((values[element1] + values[element2] ) % k == 0) {
                 sum ++
             }
         }
     }
-    
+
     return sum
 }
 
