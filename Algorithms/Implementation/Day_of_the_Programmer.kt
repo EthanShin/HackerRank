@@ -2,6 +2,9 @@ import java.io.*
 import java.util.*
 
 fun isLeapYear(year: Int): Boolean {
+    if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+        return true
+    }
     return false
 }
 
@@ -12,7 +15,9 @@ fun main(args: Array<String>) {
     val month = "09"
     var day = 13
 
-    isLeapYear(year)
+    if (isLeapYear(year)) {
+        day = 12
+    }
 
 
     println("$day.$month.$year")
