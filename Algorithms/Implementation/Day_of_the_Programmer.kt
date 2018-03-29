@@ -1,16 +1,31 @@
-import java.io.*
 import java.util.*
 
-fun isLeapYear(year: Int, day: Int) {
-    if (year == 1918) {
-        println("26.09.1918")
-    } else if (year < 1918 && year % 4 == 0) {
-        println("12.09.$year")
-    } else if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
-        println("12.09.$year")
+fun isLeapYear(inputYear: Int, inputDay: Int) {
+
+    var daysOfMonth = mutableListOf<Int>(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)
+    var month = 1
+    var day = inputDay
+
+    if (inputYear == 1918) {
+        daysOfMonth.set(1, 15)
+    } else if (inputYear < 1918 && inputYear % 4 == 0) {
+        daysOfMonth.set(1, 29)
+    } else if ((inputYear % 4 == 0 && inputYear % 100 != 0) || inputYear % 400 == 0) {
+        daysOfMonth.set(1, 29)
     } else {
-        println("13.09.$year")
+        daysOfMonth.set(1, 28)
     }
+
+    for (i in daysOfMonth) {
+        if (day < i) {
+            println(String.format("%02d.%02d.%d", day, month, inputYear))
+            break;
+        } else {
+            day -= i
+            month++
+        }
+    }
+
 }
 
 fun main(args: Array<String>) {
