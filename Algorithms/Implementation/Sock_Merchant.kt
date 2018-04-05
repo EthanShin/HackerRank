@@ -2,6 +2,19 @@ import java.util.*
 
 fun checkPair(c: List<Int>) {
 
+    var isPair = mutableListOf<Int>()
+    var pairs = 0
+
+    for (i in c) {
+        if (isPair.contains(i)) {
+            pairs++
+            isPair.remove(i)
+        } else {
+            isPair.add(i)
+        }
+    }
+    
+    println(pairs)
 }
 
 fun main(args: Array<String>) {
