@@ -4,23 +4,19 @@ fun climbingLeaderboard(scores: Array<Int>, alice: Array<Int>): Array<Int> {
     var rankList = mutableListOf<Int>()
 
     var setScores = scores.toSet().toTypedArray()
-    var rank = setScores.size + 1
+    var rank = setScores.size
 
     for (i in alice) {
-
-        if (i >= setScores[0]) {
-            rankList.add(1)
-        } else {
-            for (j in (0..setScores.size - 1).reversed()) {
-
-                if (i >= setScores[j]) {
-                    rank = j + 1
-                } else {
-                    setScores = setScores.sliceArray(0..j)
-                    rankList.add(rank)
-                    break;
-                }
+        for (j in (0..rank - 1).reversed()) {
+            if (i >= setScores[j]) {
+                rank = j
+            } else {
+                rankList.add(rank + 1)
+                break;
             }
+        }
+        if (rank == 0) {
+            rankList.add(1)
         }
     }
 
