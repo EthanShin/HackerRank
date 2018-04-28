@@ -1,8 +1,9 @@
 import java.util.*
 
 fun hurdleRace(maximum: Int, heights: List<Int>): Int {
-
-    return 0
+    var drink = heights.max()!! - maximum
+    if (drink > 0) return drink
+    else return 0
 }
 
 fun main(args: Array<String>) {
