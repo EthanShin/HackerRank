@@ -1,8 +1,10 @@
 import java.util.*
 
 fun utopianTree(cycles: Int): Int {
+    if (cycles == 0) return 1
 
-    return 0
+    if (cycles % 2 == 0) return utopianTree(cycles - 1) + 1
+    else return utopianTree(cycles - 1) * 2
 }
 
 fun main(args: Array<String>) {
@@ -10,7 +12,7 @@ fun main(args: Array<String>) {
 
     val numbers = scan.nextInt()
 
-    for (i in 0..numbers) {
+    for (i in 1..numbers) {
         val cycles = scan.nextInt()
         val result = utopianTree(cycles)
         println(result)
