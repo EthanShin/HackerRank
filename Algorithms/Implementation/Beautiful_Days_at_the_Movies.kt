@@ -6,7 +6,12 @@ fun beautifulDays(input: List<String>): Int {
     val lastDay = input[1].trim().toInt()
     val divideNumber = input[2].trim().toInt()
 
-    return 0
+    var beautiful = 0
+
+    for (day in firstDay..lastDay) {
+        if ((day - day.toString().reversed().toInt()) % divideNumber == 0) beautiful++
+    }
+    return beautiful
 }
 
 fun main(args: Array<String>) {
