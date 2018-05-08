@@ -1,7 +1,15 @@
 import java.util.*
 
-fun viralAdvertising(basic_value: Int): Int {
-    return 0
+fun viralAdvertising(days: Int): Int {
+    var shared = 5
+    var cumulative = 0
+
+    for (i in 1..days) {
+        var linked = shared / 2
+        cumulative += linked
+        shared = linked * 3
+    }
+    return cumulative
 }
 
 fun main(args: Array<String>) {
