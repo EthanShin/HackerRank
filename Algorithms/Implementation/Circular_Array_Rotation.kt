@@ -1,10 +1,5 @@
 import java.util.*
 
-fun circularArray(array: List<String>, k: Int): List<String> {
-
-    return array
-}
-
 fun main(args: Array<String>) {
     val scan = Scanner(System.`in`)
 
@@ -15,10 +10,8 @@ fun main(args: Array<String>) {
 
     val secondLine = scan.nextLine().split(" ")
 
-    circularArray(secondLine, k)
-
     for (i in 1..q) {
         val m = scan.nextLine().trim().toInt()
-        println(secondLine[m])
+        println(secondLine[(m + k - 1) % n])
     }
 }
