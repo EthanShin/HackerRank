@@ -2,7 +2,17 @@ import java.util.*
 
 fun findDigits(n: Int): Int {
 
-    return 0
+    var numbers = n.toString()
+    var result = 0
+
+    for (i in numbers) {
+        if (i == '0') continue
+        when (n % (i - '0')) {
+            0 -> result++
+        }
+    }
+
+    return result
 }
 
 fun main(args: Array<String>) {
