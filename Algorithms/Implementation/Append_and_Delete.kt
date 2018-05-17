@@ -1,13 +1,12 @@
 import java.util.*
 
 fun appendAndDelete(s: String, t: String, k: Int): String {
-
-    var range = 0..(minOf(s.length, t.length) - 1)
-    var location = 0
-
-    if (k > s.length + t.length) {
-        return "Yes"
-    }
+    
+    val totalLength = s.length + t.length
+    if (k > totalLength) return "Yes"
+    
+    var location = minOf(s.length, t.length)
+    val range = 0..(location - 1)
     
     for (i in range) {
         if (s[i] != t[i]) {
@@ -16,10 +15,11 @@ fun appendAndDelete(s: String, t: String, k: Int): String {
         }
     }
 
-    if (k == s.length + t.length - 2 * location) {
+    var result = k - (totalLength - 2 * location)
+    if (result == 0 || (result > 0 && result % 2 == 0)) {
         return "Yes"
     }
-    
+
     return "No"
 }
 
