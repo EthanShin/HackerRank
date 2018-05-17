@@ -1,8 +1,19 @@
 import java.util.*
+import kotlin.math.sqrt
 
 fun squares(a: Int, b: Int): Int {
 
-    return 0
+    val sqrtA = sqrt(a.toDouble())
+    val sqrtB = sqrt(b.toDouble())
+
+    val intSqrtA = sqrtA.toInt()
+    val intSqrtB = sqrtB.toInt()
+
+    return if (sqrtA - intSqrtA > 0) {
+        intSqrtB - intSqrtA
+    } else {
+        intSqrtB - intSqrtA + 1
+    }
 }
 
 fun main(args: Array<String>) {
