@@ -2,7 +2,12 @@ import java.util.*
 
 fun libraryFine(d1: Int, m1: Int, y1: Int, d2: Int, m2: Int, y2: Int): Int {
 
-    return 0
+    return when {
+        y1 > y2 -> 10000
+        y1 == y2 && m1 > m2 -> (m1 - m2) * 500
+        y1 == y2 && m1 == m2 && d1 > d2 -> (d1 - d2) * 15
+        else -> 0
+    }
 }
 
 fun main(args: Array<String>) {
